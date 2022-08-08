@@ -173,7 +173,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/react-node-app/dev/1659961814761-2022-08-08T12:30:14.761Z/react-node-app.zip"
+                "S3Key": "serverless/react-node-app/dev/1659977552616-2022-08-08T16:52:32.616Z/react-node-app.zip"
               },
               "Handler": "index.handler",
               "Runtime": "nodejs12.x",
@@ -191,14 +191,14 @@
               "AppLogGroup"
             ]
           },
-          "AppLambdaVersionTTzNyuoYJuziHXmxaYQMVJ9AGVMSsNN4ieE5qCXQQQ": {
+          "AppLambdaVersion568bdCZ9FNBq6XP53uw8q5pJFGdLaGjCnafTpHEsB0g": {
             "Type": "AWS::Lambda::Version",
             "DeletionPolicy": "Retain",
             "Properties": {
               "FunctionName": {
                 "Ref": "AppLambdaFunction"
               },
-              "CodeSha256": "kiWzpMH3xH4AQEfye/VGYFJGNJr+Q1cGs6TnblDFlZI="
+              "CodeSha256": "7oc47WdM8bFia+uu1X7Yo3EgoGj5o2j//hRD5e5pmcE="
             }
           },
           "ApiGatewayRestApi": {
@@ -238,21 +238,6 @@
                 ]
               },
               "PathPart": "getData",
-              "RestApiId": {
-                "Ref": "ApiGatewayRestApi"
-              }
-            }
-          },
-          "ApiGatewayResourceBook": {
-            "Type": "AWS::ApiGateway::Resource",
-            "Properties": {
-              "ParentId": {
-                "Fn::GetAtt": [
-                  "ApiGatewayRestApi",
-                  "RootResourceId"
-                ]
-              },
-              "PathPart": "book",
               "RestApiId": {
                 "Ref": "ApiGatewayRestApi"
               }
@@ -342,51 +327,6 @@
               },
               "ResourceId": {
                 "Ref": "ApiGatewayResourceGetdata"
-              },
-              "RestApiId": {
-                "Ref": "ApiGatewayRestApi"
-              }
-            }
-          },
-          "ApiGatewayMethodBookOptions": {
-            "Type": "AWS::ApiGateway::Method",
-            "Properties": {
-              "AuthorizationType": "NONE",
-              "HttpMethod": "OPTIONS",
-              "MethodResponses": [
-                {
-                  "StatusCode": "200",
-                  "ResponseParameters": {
-                    "method.response.header.Access-Control-Allow-Origin": true,
-                    "method.response.header.Access-Control-Allow-Headers": true,
-                    "method.response.header.Access-Control-Allow-Methods": true
-                  },
-                  "ResponseModels": {}
-                }
-              ],
-              "RequestParameters": {},
-              "Integration": {
-                "Type": "MOCK",
-                "RequestTemplates": {
-                  "application/json": "{statusCode:200}"
-                },
-                "ContentHandling": "CONVERT_TO_TEXT",
-                "IntegrationResponses": [
-                  {
-                    "StatusCode": "200",
-                    "ResponseParameters": {
-                      "method.response.header.Access-Control-Allow-Origin": "'*'",
-                      "method.response.header.Access-Control-Allow-Headers": "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,X-Amz-User-Agent,X-Amzn-Trace-Id'",
-                      "method.response.header.Access-Control-Allow-Methods": "'OPTIONS,GET'"
-                    },
-                    "ResponseTemplates": {
-                      "application/json": ""
-                    }
-                  }
-                ]
-              },
-              "ResourceId": {
-                "Ref": "ApiGatewayResourceBook"
               },
               "RestApiId": {
                 "Ref": "ApiGatewayRestApi"
@@ -485,53 +425,7 @@
               "AppLambdaPermissionApiGateway"
             ]
           },
-          "ApiGatewayMethodBookGet": {
-            "Type": "AWS::ApiGateway::Method",
-            "Properties": {
-              "HttpMethod": "GET",
-              "RequestParameters": {},
-              "ResourceId": {
-                "Ref": "ApiGatewayResourceBook"
-              },
-              "RestApiId": {
-                "Ref": "ApiGatewayRestApi"
-              },
-              "ApiKeyRequired": false,
-              "AuthorizationType": "NONE",
-              "Integration": {
-                "IntegrationHttpMethod": "POST",
-                "Type": "AWS_PROXY",
-                "Uri": {
-                  "Fn::Join": [
-                    "",
-                    [
-                      "arn:",
-                      {
-                        "Ref": "AWS::Partition"
-                      },
-                      ":apigateway:",
-                      {
-                        "Ref": "AWS::Region"
-                      },
-                      ":lambda:path/2015-03-31/functions/",
-                      {
-                        "Fn::GetAtt": [
-                          "AppLambdaFunction",
-                          "Arn"
-                        ]
-                      },
-                      "/invocations"
-                    ]
-                  ]
-                }
-              },
-              "MethodResponses": []
-            },
-            "DependsOn": [
-              "AppLambdaPermissionApiGateway"
-            ]
-          },
-          "ApiGatewayDeployment1659961790941": {
+          "ApiGatewayDeployment1659977543660": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -542,10 +436,8 @@
             "DependsOn": [
               "ApiGatewayMethodApiOptions",
               "ApiGatewayMethodGetdataOptions",
-              "ApiGatewayMethodBookOptions",
               "ApiGatewayMethodApiGet",
-              "ApiGatewayMethodGetdataGet",
-              "ApiGatewayMethodBookGet"
+              "ApiGatewayMethodGetdataGet"
             ]
           },
           "AppLambdaPermissionApiGateway": {
@@ -598,7 +490,7 @@
           "AppLambdaFunctionQualifiedArn": {
             "Description": "Current Lambda function version",
             "Value": {
-              "Ref": "AppLambdaVersionTTzNyuoYJuziHXmxaYQMVJ9AGVMSsNN4ieE5qCXQQQ"
+              "Ref": "AppLambdaVersion568bdCZ9FNBq6XP53uw8q5pJFGdLaGjCnafTpHEsB0g"
             },
             "Export": {
               "Name": "sls-react-node-app-dev-AppLambdaFunctionQualifiedArn"
@@ -768,30 +660,6 @@
               },
               "integration": "AWS_PROXY"
             }
-          },
-          {
-            "http": {
-              "path": "book",
-              "method": "get",
-              "cors": {
-                "origin": "*",
-                "methods": [
-                  "OPTIONS",
-                  "GET"
-                ],
-                "headers": [
-                  "Content-Type",
-                  "X-Amz-Date",
-                  "Authorization",
-                  "X-Api-Key",
-                  "X-Amz-Security-Token",
-                  "X-Amz-User-Agent",
-                  "X-Amzn-Trace-Id"
-                ],
-                "allowCredentials": false
-              },
-              "integration": "AWS_PROXY"
-            }
           }
         ],
         "name": "react-node-app-dev-app",
@@ -800,13 +668,22 @@
         "timeout": 6,
         "runtime": "nodejs12.x",
         "vpc": {},
-        "versionLogicalId": "AppLambdaVersionTTzNyuoYJuziHXmxaYQMVJ9AGVMSsNN4ieE5qCXQQQ"
+        "versionLogicalId": "AppLambdaVersion568bdCZ9FNBq6XP53uw8q5pJFGdLaGjCnafTpHEsB0g"
       }
     },
     "configValidationMode": "warn",
     "serviceFilename": "serverless.yml",
     "initialServerlessConfig": {
       "service": "react-node-app",
+      "package": {
+        "exclude": [
+          "venv/**",
+          "client/**"
+        ],
+        "artifactsS3KeyDirname": "serverless/react-node-app/dev/code-artifacts",
+        "artifact": "/Users/zainabnoori/AND/MyOwnLearning/react-node-app/.serverless/react-node-app.zip",
+        "artifactDirectoryName": "serverless/react-node-app/dev/1659977552616-2022-08-08T16:52:32.616Z"
+      },
       "provider": {
         "$ref": "$[\"service\"][\"provider\"]"
       },
@@ -819,7 +696,7 @@
     "artifact": "/Users/zainabnoori/AND/MyOwnLearning/react-node-app/.serverless/react-node-app.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/react-node-app/dev/1659961814761-2022-08-08T12:30:14.761Z",
+    "artifactDirectoryName": "serverless/react-node-app/dev/1659977552616-2022-08-08T16:52:32.616Z",
     "artifact": "react-node-app.zip"
   }
 }

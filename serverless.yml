@@ -1,4 +1,8 @@
 service: react-node-app
+package:
+  exclude:
+    - venv/**
+    - client/**
 provider:
   name: aws
   runtime: nodejs12.x

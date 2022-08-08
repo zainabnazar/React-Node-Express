@@ -9,7 +9,7 @@ app.get('/api', book, (req, res) => {
 })
 
 app.get('/getData', book, (req, res) => {
-    console.log("Success!!!!", res.data);
+    console.log("Success!!!!!", res.data);
 })
 
 module.exports.handler = serverless(app);
