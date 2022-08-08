@@ -9,6 +9,10 @@ functions:
     handler: index.handler
     events:
       - http:
-          path: /
+          path: /api
+          method: GET
+          cors: true
+      - http:
+          path: /getData
           method: GET
           cors: true

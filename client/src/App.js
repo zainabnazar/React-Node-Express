@@ -12,21 +12,21 @@ function App() {
   // }, []);
 
   // External api
-  // useEffect(() => {
-  //   fetch(`/getData`)
-  //     .then(res => res.json())
-  //     .then(book => setBook(book.title));
-  //   console.log(book);
-  // });
-
-  // Internal api with Internal Json
-
   useEffect(() => {
-    fetch(`/book`)
+    fetch(`/getData`)
       .then(res => res.json())
       .then(book => setBook(book.title));
     console.log(book);
-  }, []);
+  });
+
+  // Internal api with Internal Json
+
+  // useEffect(() => {
+  //   fetch(`/book`)
+  //     .then(res => res.json())
+  //     .then(book => setBook(book.title));
+  //   console.log(book);
+  // }, []);
 
 
 
