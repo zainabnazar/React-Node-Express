@@ -13,3 +13,7 @@ A full-stack projects with React in frontend and Node.js (Express) in the backen
 The App deployed to AWS Lambda using serverless >> https://rld2ng2qv9.execute-api.eu-west-2.amazonaws.com/dev/getData
 
 The App deployed to Heroku
+
+# GitHub actions
+
+Github actions has been added to run the test
