@@ -20,4 +20,4 @@ jobs:
       - name: Run Test
         run: npm run test
       - name: Run ESLint
-        run: eslint . --ext .js,.jsx,.ts,.tsx
+        run: ./eslint-formatter-rdjson/test.sh
