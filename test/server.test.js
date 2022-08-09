@@ -1,13 +1,19 @@
 const request = require('supertest');
 const app = require("../server/index")
 
-describe("GET /getData", function () {
-    it("Return the book details", async function () {
-        const response = request(app).get('/getData');
-        request(app)
+
+
+describe('GET /getData', () => {
+
+    it('Successful call to /getData', () => {
+        return request(app)
+            .get('/getData')
+            .expect(200)
+    });
+    it("Return the book details as json", async function () {
+        return request(app)
             .get('/getData')
             .expect('Content-Type', /json/)
-            .expect(200)
-        console.log(response.url);
     });
+
 });
