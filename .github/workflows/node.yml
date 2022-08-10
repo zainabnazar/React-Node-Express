@@ -19,6 +19,8 @@ jobs:
       - run: npm run build --if-present
       - name: Run Tests
         run: npm run test
+      - name: Install Serverless Framework
+        run: npm install -g serverless
       - name: AWS Lambda deploy
         uses: serverless/github-action@master
         with:
