@@ -19,3 +19,12 @@ jobs:
       - run: npm run build --if-present
       - name: Run Tests
         run: npm run test
+      - name: AWS Lambda deploy
+        uses: serverless/github-action@master
+        with:
+          args: deploy
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_region: ${{ secrets.AWS_REGION }}
+          function_name: react-node-app-dev-app
+          source: index.js
