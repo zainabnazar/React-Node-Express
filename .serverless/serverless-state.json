@@ -173,7 +173,7 @@
                 "S3Bucket": {
                   "Ref": "ServerlessDeploymentBucket"
                 },
-                "S3Key": "serverless/react-node-app/dev/1660169290640-2022-08-10T22:08:10.640Z/react-node-app.zip"
+                "S3Key": "serverless/react-node-app/dev/1660170226422-2022-08-10T22:23:46.422Z/react-node-app.zip"
               },
               "Handler": "index.handler",
               "Runtime": "nodejs12.x",
@@ -425,7 +425,7 @@
               "AppLambdaPermissionApiGateway"
             ]
           },
-          "ApiGatewayDeployment1660169276961": {
+          "ApiGatewayDeployment1660170215936": {
             "Type": "AWS::ApiGateway::Deployment",
             "Properties": {
               "RestApiId": {
@@ -676,13 +676,13 @@
     "initialServerlessConfig": {
       "service": "react-node-app",
       "package": {
-        "exclude": [
-          "venv/**",
-          "client/**"
+        "patterns": [
+          "!./venv/**",
+          "!./client/**"
         ],
         "artifactsS3KeyDirname": "serverless/react-node-app/dev/code-artifacts",
         "artifact": "/Users/zainabnoori/AND/MyOwnLearning/react-node-app/.serverless/react-node-app.zip",
-        "artifactDirectoryName": "serverless/react-node-app/dev/1660169290640-2022-08-10T22:08:10.640Z"
+        "artifactDirectoryName": "serverless/react-node-app/dev/1660170226422-2022-08-10T22:23:46.422Z"
       },
       "provider": {
         "$ref": "$[\"service\"][\"provider\"]"
@@ -696,7 +696,7 @@
     "artifact": "/Users/zainabnoori/AND/MyOwnLearning/react-node-app/.serverless/react-node-app.zip"
   },
   "package": {
-    "artifactDirectoryName": "serverless/react-node-app/dev/1660169290640-2022-08-10T22:08:10.640Z",
+    "artifactDirectoryName": "serverless/react-node-app/dev/1660170226422-2022-08-10T22:23:46.422Z",
     "artifact": "react-node-app.zip"
   }
 }

@@ -161,7 +161,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/react-node-app/dev/1660169290640-2022-08-10T22:08:10.640Z/react-node-app.zip"
+          "S3Key": "serverless/react-node-app/dev/1660170226422-2022-08-10T22:23:46.422Z/react-node-app.zip"
         },
         "Handler": "index.handler",
         "Runtime": "nodejs12.x",
@@ -413,7 +413,7 @@
         "AppLambdaPermissionApiGateway"
       ]
     },
-    "ApiGatewayDeployment1660169276961": {
+    "ApiGatewayDeployment1660170215936": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
