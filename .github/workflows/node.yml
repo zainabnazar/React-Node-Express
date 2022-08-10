@@ -18,12 +18,20 @@ jobs:
         run: npm run test
       - name: Install Serverless Framework
         run: npm install -g serverless
-      - name: AWS Lambda deploy
-        uses: serverless/github-action@master
+      - name: serverless deploy
+        uses: serverless/github-action@v3.1
         with:
+          args: deploy
+        env:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: eu-west-2
-          function_name: react-node-app-dev-app
-          source: index.js
-          SLS_INTERACTIVE_SETUP_ENABLE: 1
+
+        # uses: serverless/github-action@master
+        # with:
+        #   aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        #   aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        #   aws_region: eu-west-2
+        #   function_name: react-node-app-dev-app
+        #   source: index.js
+        #   SLS_INTERACTIVE_SETUP_ENABLE: 1
