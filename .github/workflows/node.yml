@@ -19,7 +19,7 @@ jobs:
       - name: Install Serverless Framework
         run: npm install -g serverless
       - name: AWS Lambda deploy
-        run: serverless deploy
+        uses: serverless/github-action@master
         with:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
