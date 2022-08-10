@@ -9,9 +9,15 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    strategy:
+      matrix:
+        node-version: [12.x]
     steps:
       - uses: actions/checkout@v3
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: action/setup-node@v1
+        with:
+          node-version: ${{matrix.node-version}}
       - run: npm ci
       - run: npm run build --if-present
       - name: Run Tests
@@ -19,19 +25,10 @@ jobs:
       - name: Install Serverless Framework
         run: npm install -g serverless
       - name: serverless deploy
-        uses: serverless/github-action@v3.1
+        uses: serverless/github-action@master
         with:
           args: deploy
         env:
           aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws_region: ${{ secrets.AWS_REGION }}
-
-        # uses: serverless/github-action@master
-        # with:
-        #   aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        #   aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        #   aws_region: eu-west-2
-        #   function_name: react-node-app-dev-app
-        #   source: index.js
-        #   SLS_INTERACTIVE_SETUP_ENABLE: 1
